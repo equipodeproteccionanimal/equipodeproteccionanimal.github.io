@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Equipo de Protección Animal</title>
+    <style>
+      @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css");
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  scroll-behavior: smooth;
+  transition: all ease-in-out .5s;
+}
+::selection{
+  background: crimson;
+  color: white;
+}
+body{
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  padding: 10px;
+  gap: 5px;
+}
+body h2{
+  font-family: 'Times New Roman', Times, serif;
+  text-align: center;
+  font-weight: normal;
+  color: crimson;
+}
+.hide{
+  opacity: 0;
+  visibility: hidden;
+}
+.menu{
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  width: 80%;
+  height: 100%;
+  background: crimson;
+  flex-direction: column;
+  align-items: flex-end;
+  color: white;
+  box-shadow: -20px 0 40px rgba(0, 0, 0, .4);
+}
+.menu #close, .menu a{
+  font-size: 30px;
+  color: white;
+  padding: 5px 10px;
+  margin-top: 5px;
+}
+nav{
+  width: 100%;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+nav h1{
+  font-size: 30px;
+  color: crimson;
+}
+#open{
+  height: 30px;
+  color: crimson;
+}
+header{
+  width: 100%;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+header p{
+  font-size: 20px;
+  margin: 10px;
+}
+header button{
+  padding: 5px 10px;
+  font-size: 20px;
+  border: none;
+  background-color: crimson;
+  color: white;
+  border-radius: 3px;
+  margin: 10px;
+}
+header img{
+  width: 90%;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, .2);
+}
+header img:hover{
+  scale: 1.2;
+}
+.about{
+  width: 100%;
+  padding: 5px;
+}
+.about p{
+  color: dimgrey;
+  text-align: justify;
+  margin-top: 5px;
+  line-height: 23px;
+  padding: 10px;
+}
+.about img{
+  width: 100%;
+  border-radius: 10px;
+  margin: 10px 0;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, .2);
+}
+.about img:hover{
+  scale: 1.2;
+}
+.premisas{
+  width: 100%;
+  padding: 5px;
+}
+.premisas p{
+  color: dimgrey;
+  text-align: justify;
+  margin-top: 5px;
+  line-height: 23px;
+  padding: 10px;
+  text-align: justify;
+}
+.work{
+  width: 100%;
+  padding: 5px;
+}
+.work p{
+  color: dimgrey;
+  text-align: justify;
+  margin-top: 5px;
+  line-height: 23px;
+  padding: 10px;
+}
+.work img{
+  width: 100%;
+  border-radius: 10px;
+  margin: 15px 0;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, .2);
+}
+.work img:hover{
+  scale: 1.2;
+}
+.container{
+  width: 100%;
+  padding: 5px;
+  gap: 5px;
+}
+.container .card{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  margin: 15px 0;
+  gap: 15px;
+  background: crimson;
+  border-radius: 10px;
+  padding: 10px 0;
+}
+.container .card i{
+  font-size: 30px;
+  color: white;
+}
+.container .card h3{
+  font-family: 'Times New Roman', Times, serif;
+  text-align: center;
+  font-weight: normal;
+  color: white;
+}
+.container .card p{
+  color: white;
+  margin-top: 5px;
+  line-height: 23px;
+  padding: 10px;
+  text-align: center;
+}
+.donations{
+  width: 100%;
+  padding: 5px;
+}
+.donations p{
+  color: dimgrey;
+  margin-top: 5px;
+  line-height: 23px;
+  padding: 10px;
+  text-align: center;
+}
+.blog{
+  width: 100%;
+  padding: 5px;
+}
+.blog h5{
+  text-transform: uppercase;
+  font-size: 20px;
+  text-align: center;
+  color: crimson;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: normal;
+  margin: 15px 0;
+}
+.contact{
+  width: 100%;
+  padding: 10px 5px;
+  background: crimson;
+  color: white;
+  text-align: center;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+.contact a{
+  color: white;
+  font-size: 20px;
+  margin: 0 10px;
+}
+    </style>
+</head>
+<body>
+  
+  <nav id="inicio">
+    <h1>EPA</h1>
+    <i onclick="open_Menu()" id="open" class="bi bi-three-dots-vertical"></i>
+  </nav>
+  <div id="menu" class="menu hide">
+    <i onclick="close_Menu()" id="close" class="bi bi-x"></i>
+    <a onclick="close_Menu()" href="#inicio">Inicio</a>
+    <a onclick="close_Menu()" href="#equipo">Nuestro Equipo</a>
+    <a onclick="close_Menu()" href="#premisas">Nuestras Premisas</a>
+    <a onclick="close_Menu()" href="#work">Nuestro Trabajo</a>
+    <a onclick="close_Menu()" href="#donar">Donaciones</a>
+    <a onclick="close_Menu()"href="#blog">Blog</a>
+    <a onclick="close_Menu()"href="#contacto">Contacto</a>
+  </div>
+  <header>
+    <h2>Equipo de Protección Animal</h2>
+    <p>San Antonio de los Baños</p>
+    <button>Blog</button>
+    <img src="photo.jpg">
+  </header>
+  <div id="equipo" class="about">
+    <h2>Nuestro Equipo</h2>
+    <img src="photo2.jpg">
+    <p>En la tierra del Ariguanabo, San Antonio de los Baños, nació,  en noviembre de 2019, el Equipo de Protección Animal (EPA). Actualmente cuenta con 7 miembros, en su mayoría jóvenes que dividen su jornada entre el estudio, el trabajo y el cuidado a las mascotas vulnerables.</p>
+  </div>
+  <div id="premisas" class="premisas">
+    <h2>Nuestras Premisas</h2>
+    <p> <strong> ¿Qué debes hacer para reportar un caso? </strong></p>
+    <p>Pueden contactarnos mediante WhatsApp o llamada a los números de la sección de contacto.</p>
+    <p><strong>¿Cuál es la ayuda que podemos brindar?</strong></p>
+    <p>Nuestro equipo se propone crear conciencia para acabar con el maltrato animal y en la medida de lo posible poder ayudar a los casos que se nos presenta. <br> No contamos con un local como refugio para recoger animales por lo que casi siempre se atienden en la calle o en locales temporales que brindan los voluntarios. <br> Hemos dado promocion con la confección de carteles ya sea adopción, pérdida, temporales o tránsitos logrando ayudar a gran cantidad de animales. Por eso la importancia de reportar los casos pues mediante la promoción se consiguen medicamentos, comida, muchas veces casas de acogida y diversas donaciones con vista a la recuperación del animal. </p>
+  </div>
+  <div id="work" class="work">
+    <h2>Nuestro Trabajo</h2>
+    <p> Durante estos casi 5 años de creado, EPA ha brindado ayuda a muchos animales necesitados. Nuestra constancia y dedicación ha salvado y mejorado la vida hay muchos peludos, Estamos muy orgullosos de la labor realizada ya que no hay nada más gratificante que ver la recuperación de un animal en mal estado, ver como retoma su confianza y como lo agradece mostrándonos su amor. El bienestar animal es nuestro principio y a pesar de las malas experiencias que hemos tenido, no opacan las ganas y los deseos de continuar salvando vidas. Las estamos muy agradecidos a todas las personas que han brindados ayuda para que EPA sea cada vez más eficiente y útil. Qué aquí una muestra de nuestro trabajo, animalitos que han llegado en nuestro equipo en las peores condiciones y que hoy forman parte de estas historias con final feliz, historias que jamás podremos olvidar.</p>
+    <img src="/photo3.jpg">
+    <h2>Actividades realizadas</h2>
+    <div class="container">
+      <div class="card">
+        <i class="bi bi-heart"></i>
+        <h3>Campañas Veterinarias</h3>
+        <p>Realizacion de campañas veterinarias que incluyen: vacunación, desparacitación, castración, corte de uñas y muchas otras actividades.</p>
+      </div>
+      <div class="card">
+        <i class="bi bi-heart"></i>
+        <h3>Ferias de Adopción</h3>
+        <p>Realización de ferias de adopciones responsables que promueven la importancia de adoptar antes de comprar</p>
+      </div>
+       <div class="card">
+        <i class="bi bi-heart"></i>
+        <h3>Campañas de Concientización</h3>
+        <p>Visitas a centros educativos para crear conciencia desde edades temprana sobre el cuidado animal.</p>
+      </div>
+      <div class="card">
+        <i class="bi bi-heart"></i>
+        <h3>Actividades Culturales</h3>
+        <p>Realizacion de actividades culturalespara fomentar la cultura del cuidado y protección de todos los animales.</p>
+      </div>
+    </div>
+  </div>
+  <div id="donar" class="donations">
+    <h2>Donaciones</h2>
+    <p><strong>¿Cómo puedo cooperar con EPA?</strong></p>
+    <p><strong>Tarjeta MLC:</strong> 9225-0699-9457-0534</p>
+    <p><strong>Tarjeta CUP:</strong> 9224-0699-9476-0326</p>
+    <p><strong>Número de confirmación:</strong> 53108682</p>
+  </div>
+  <div id="blog" class="blog">
+    <h2>Últimos Posts</h2>
+    <h5>Muy Pronto...</h5>
+  </div>
+  <div id="contacto" class="contact">
+    <h2>Contacto</h2>
+    <p><strong>Puedes encontrarnos en nuestras redes sociales.</strong></p>
+    <br>
+    <a href="https://www.facebook.com/profile.php?id=100063690655399"><i class="bi bi-facebook"></i></a>
+    <a href="https://wa.me/5358123081"><i class="bi bi-whatsapp"></i></a>
+    <a href="https://instagram.com/equipo_de_proteccion_animal?igshid=OGY3MTU3OGY1Mw=="><i class="bi bi-instagram"></i></a>
+    
+    <br>
+    <br>
+    <i class="bi bi-c-circle">Todos los derechos reservados. EPA 2023</i>
+  </div>
+  
+  <script>
+    open = document.getElementById("open");
+    close = document.getElementById("close");
+    menu = document.getElementById("menu");
+
+
+
+    function open_Menu(){
+      menu.classList.remove("hide");
+    };
+
+    function close_Menu(){
+      menu.classList.add("hide");
+    };
+    
+  </script>
+</body>
+</html>
