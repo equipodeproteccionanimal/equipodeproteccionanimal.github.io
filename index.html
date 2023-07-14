@@ -37,12 +37,23 @@ body{
   justify-content: space-around;
   padding: 10px;
   gap: 5px;
+  position: relative;
 }
 body h2{
   font-family: 'Times New Roman', Times, serif;
   text-align: center;
   font-weight: normal;
   color: crimson;
+}
+.btn{
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  width:20px;
+  height:20px;
+  background: crimson;
+  color: white;
+  border-radius: 50%;
 }
 .hide{
   opacity: 0;
@@ -272,14 +283,7 @@ header img:hover{
   font-size: 20px;
   margin: 0 10px;
 }
-.btn{
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
-  background: crimson;
-  color: white;
-  border-radius: 50%;
-}
+
       @media (min-width:420px){
         body{
           padding: 10px 300px;
